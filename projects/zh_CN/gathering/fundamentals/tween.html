@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="基本原理  mframe  缓动为了使动画更加顺滑，你可以传入缓动公式。 12345678var motion &#x3D; mframe([&amp;#123;  dom: document.getElementById(&#39;ball&#39;),  frames: [    &amp;#123; css: &amp;#123; backgroundColor: &#39;#279BE8&#39; &amp;#125;,">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://localhost/documents/mframe/zh_CN/fundamentals/tween.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="基本原理  mframe  缓动为了使动画更加顺滑，你可以传入缓动公式。 12345678var motion &#x3D; mframe([&amp;#123;  dom: document.getElementById(&#39;ball&#39;),  frames: [    &amp;#123; css: &amp;#123; backgroundColor: &#39;#279BE8&#39; &amp;#125;,">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://img.shields.io/circleci/project/github/momentum-design/momentum-ui/master.svg">
+<meta property="og:image" content="https://img.shields.io/github/license/momentum-design/momentum-ui.svg?color=blueviolet">
+<meta property="article:published_time" content="2020-03-18T06:26:14.641Z">
+<meta property="article:modified_time" content="2020-02-28T05:21:02.239Z">
+<meta property="article:author" content="Arthus">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img.shields.io/circleci/project/github/momentum-design/momentum-ui/master.svg">
+  
+    <link rel="alternate" href="/documents/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/documents/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/documents/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/documents/">Home</a>
+        
+          <a class="main-nav-link" href="/documents/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/documents/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://localhost/documents"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="page-" class="article article-type-page" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/documents/mframe/zh_CN/fundamentals/tween.html" class="article-date">
+  <time datetime="2020-03-18T06:26:14.641Z" itemprop="datePublished">2020-03-18</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="基本原理"><a href="#基本原理" class="headerlink" title="基本原理"></a>基本原理</h1><p><a href="https://circleci.com/gh/momentum-design/momentum-ui/" target="_blank" rel="noopener"><img src="https://img.shields.io/circleci/project/github/momentum-design/momentum-ui/master.svg" alt="CircleCI"></a><br><a href="https://github.com/momentum-design/momentum-ui/blob/master/charts/LICENSE" target="_blank" rel="noopener"><img src="https://img.shields.io/github/license/momentum-design/momentum-ui.svg?color=blueviolet" alt="license"></a></p>
+<blockquote>
+<p>mframe</p>
+</blockquote>
+<h1 id="缓动"><a href="#缓动" class="headerlink" title="缓动"></a>缓动</h1><p>为了使动画更加顺滑，你可以传入缓动公式。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var motion &#x3D; mframe([&#123;</span><br><span class="line">  dom: document.getElementById(&#39;ball&#39;),</span><br><span class="line">  frames: [</span><br><span class="line">    &#123; css: &#123; backgroundColor: &#39;#279BE8&#39; &#125;, time: 0 &#125;,</span><br><span class="line">    &#123; css: &#123; backgroundColor: &#39;#E6F8FF&#39; &#125;, time: 120, tween:&#39;easeInOut&#39; &#125;,</span><br><span class="line">  ]</span><br><span class="line">&#125;]);</span><br><span class="line">motion.play();</span><br></pre></td></tr></table></figure>
+
+<h2 id="预设的缓动公式"><a href="#预设的缓动公式" class="headerlink" title="预设的缓动公式"></a>预设的缓动公式</h2><ul>
+<li><p>linear</p>
+</li>
+<li><p>easeIn</p>
+</li>
+<li><p>easeOut</p>
+</li>
+<li><p>easeInOut</p>
+</li>
+<li><p>easeInCubic</p>
+</li>
+<li><p>easeOutCubic</p>
+</li>
+<li><p>easeInOutCubic</p>
+</li>
+<li><p>easeInQuart</p>
+</li>
+<li><p>easeOutQuart</p>
+</li>
+<li><p>easeInOutQuart</p>
+</li>
+<li><p>easeInQuint</p>
+</li>
+<li><p>easeOutQuint</p>
+</li>
+<li><p>easeInOutQuint</p>
+</li>
+<li><p>easeInSine</p>
+</li>
+<li><p>easeOutSine</p>
+</li>
+<li><p>easeInOutSine</p>
+</li>
+<li><p>easeInExpo</p>
+</li>
+<li><p>easeOutExpo</p>
+</li>
+<li><p>easeInOutExpo</p>
+</li>
+<li><p>easeInCirc</p>
+</li>
+<li><p>easeOutCirc</p>
+</li>
+<li><p>easeInOutCirc</p>
+</li>
+<li><p>easeInBounce</p>
+</li>
+<li><p>easeOutBounce</p>
+</li>
+<li><p>easeInOutBounce</p>
+</li>
+</ul>
+<h2 id="获取缓动方法"><a href="#获取缓动方法" class="headerlink" title="获取缓动方法"></a>获取缓动方法</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;*</span><br><span class="line">    * @param t &#123;num&#125; current time</span><br><span class="line">    * @param b &#123;num&#125; beginning value</span><br><span class="line">    * @param c &#123;num&#125; change in value</span><br><span class="line">    * @param d &#123;num&#125; duration</span><br><span class="line">*&#x2F;</span><br><span class="line">mframe.Tween.linear(t, b, c, d);</span><br></pre></td></tr></table></figure>
+
+<h2 id="自定义缓动"><a href="#自定义缓动" class="headerlink" title="自定义缓动"></a>自定义缓动</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mframe.Tween.add(&#39;yourTweenName&#39;, function(t, b, c, d) &#123;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://localhost/documents/mframe/zh_CN/fundamentals/tween.html" data-id="ck7wy02ki000i8muredn08ac5" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+
+  
+    
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 Arthus<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/documents/" class="mobile-nav-link">Home</a>
+  
+    <a href="/documents/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/documents/fancybox/jquery.fancybox.css">
+
+  
+<script src="/documents/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/documents/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

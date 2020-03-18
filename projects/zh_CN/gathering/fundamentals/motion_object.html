@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="基本原理  mframe  动画对象创建动画对象你可以使用mframe方法直接创建动画对象。 1234567891011var motion &#x3D; mframe([&amp;#123;  dom: document.getElementById(&#39;ball&#39;),  frames: [    &amp;#123; css: &amp;#123; backgroundColor: &#39;#279B">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://localhost/documents/mframe/zh_CN/fundamentals/motion_object.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="基本原理  mframe  动画对象创建动画对象你可以使用mframe方法直接创建动画对象。 1234567891011var motion &#x3D; mframe([&amp;#123;  dom: document.getElementById(&#39;ball&#39;),  frames: [    &amp;#123; css: &amp;#123; backgroundColor: &#39;#279B">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://img.shields.io/circleci/project/github/momentum-design/momentum-ui/master.svg">
+<meta property="og:image" content="https://img.shields.io/github/license/momentum-design/momentum-ui.svg?color=blueviolet">
+<meta property="article:published_time" content="2020-03-18T06:26:11.459Z">
+<meta property="article:modified_time" content="2020-02-28T05:15:42.038Z">
+<meta property="article:author" content="Arthus">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img.shields.io/circleci/project/github/momentum-design/momentum-ui/master.svg">
+  
+    <link rel="alternate" href="/documents/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/documents/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/documents/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/documents/">Home</a>
+        
+          <a class="main-nav-link" href="/documents/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/documents/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://localhost/documents"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="page-" class="article article-type-page" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/documents/mframe/zh_CN/fundamentals/motion_object.html" class="article-date">
+  <time datetime="2020-03-18T06:26:11.459Z" itemprop="datePublished">2020-03-18</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="基本原理"><a href="#基本原理" class="headerlink" title="基本原理"></a>基本原理</h1><p><a href="https://circleci.com/gh/momentum-design/momentum-ui/" target="_blank" rel="noopener"><img src="https://img.shields.io/circleci/project/github/momentum-design/momentum-ui/master.svg" alt="CircleCI"></a><br><a href="https://github.com/momentum-design/momentum-ui/blob/master/charts/LICENSE" target="_blank" rel="noopener"><img src="https://img.shields.io/github/license/momentum-design/momentum-ui.svg?color=blueviolet" alt="license"></a></p>
+<blockquote>
+<p>mframe</p>
+</blockquote>
+<h1 id="动画对象"><a href="#动画对象" class="headerlink" title="动画对象"></a>动画对象</h1><h2 id="创建动画对象"><a href="#创建动画对象" class="headerlink" title="创建动画对象"></a>创建动画对象</h2><p>你可以使用mframe方法直接创建动画对象。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">var motion &#x3D; mframe([&#123;</span><br><span class="line">  dom: document.getElementById(&#39;ball&#39;),</span><br><span class="line">  frames: [</span><br><span class="line">    &#123; css: &#123; backgroundColor: &#39;#279BE8&#39; &#125;, time: 0 &#125;,</span><br><span class="line">    &#123; css: &#123; backgroundColor: &#39;#E6F8FF&#39; &#125;, time: 120, tween:&#39;easeInOut&#39; &#125;,</span><br><span class="line">  ],</span><br><span class="line">  events: &#123;</span><br><span class="line">      0: ()&#x3D;&gt; &#123;&#125;,</span><br><span class="line">      &#39;each&#39;: (index)&#x3D;&gt; &#123;&#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;], events);</span><br></pre></td></tr></table></figure>
+<h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><h3 id="add"><a href="#add" class="headerlink" title="add"></a>add</h3><p>add方法同动画对象的构造函数</p>
+<h4 id="例"><a href="#例" class="headerlink" title="例"></a>例</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">motion.add([&#123;</span><br><span class="line">  dom: document.getElementById(&#39;ball&#39;),</span><br><span class="line">  frames: [</span><br><span class="line">    &#123; css: &#123; backgroundColor: &#39;#279BE8&#39; &#125;, time: 0 &#125;,</span><br><span class="line">    &#123; css: &#123; backgroundColor: &#39;#E6F8FF&#39; &#125;, time: 120, tween:&#39;easeInOut&#39; &#125;,</span><br><span class="line">  ],</span><br><span class="line">  events: &#123;</span><br><span class="line">      0: ()&#x3D;&gt; &#123;&#125;,</span><br><span class="line">      &#39;each&#39;: (index)&#x3D;&gt; &#123;&#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;], events);</span><br></pre></td></tr></table></figure>
+
+<h3 id="append"><a href="#append" class="headerlink" title="append"></a>append</h3><p>append方法同动画对象的构造函数。有所不同的是，append对象中第0帧会指向当前动画实例的最后一帧。相当于追加一段动画。</p>
+<h4 id="例-1"><a href="#例-1" class="headerlink" title="例"></a>例</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">motion.add([&#123;</span><br><span class="line">  dom: document.getElementById(&#39;ball&#39;),</span><br><span class="line">  frames: [</span><br><span class="line">    &#123; css: &#123; backgroundColor: &#39;#279BE8&#39; &#125;, time: 0 &#125;,</span><br><span class="line">    &#123; css: &#123; backgroundColor: &#39;#E6F8FF&#39; &#125;, time: 120, tween:&#39;easeInOut&#39; &#125;,</span><br><span class="line">  ],</span><br><span class="line">  events: &#123;</span><br><span class="line">      0: ()&#x3D;&gt; &#123;&#125;,</span><br><span class="line">      &#39;each&#39;: (index)&#x3D;&gt; &#123;&#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;], events);</span><br></pre></td></tr></table></figure>
+
+<h3 id="bind"><a href="#bind" class="headerlink" title="bind"></a>bind</h3><p>bind方法提供一种灵活绑定事件的实现。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">motion.bind(&#39;start&#39; , function() &#123;&#125;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="play"><a href="#play" class="headerlink" title="play"></a>play</h3><p>从当前帧开始播放动画</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">motion.play();</span><br></pre></td></tr></table></figure>
+
+<h3 id="stop"><a href="#stop" class="headerlink" title="stop"></a>stop</h3><p>停止播放动画，并设置当前帧为第0帧</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">motion.stop();</span><br></pre></td></tr></table></figure>
+
+<h3 id="pause"><a href="#pause" class="headerlink" title="pause"></a>pause</h3><p>停止播放动画</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">motion.pause();</span><br></pre></td></tr></table></figure>
+
+<h3 id="run"><a href="#run" class="headerlink" title="run"></a>run</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">motion.start();</span><br></pre></td></tr></table></figure>
+
+<h4 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h4><ul>
+<li><p>start frame - 默认0</p>
+</li>
+<li><p>end frame - 默认最后一帧</p>
+</li>
+</ul>
+<h3 id="reverse"><a href="#reverse" class="headerlink" title="reverse"></a>reverse</h3><p>倒叙播放动画</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">motion.reverse();</span><br></pre></td></tr></table></figure>
+
+<h3 id="repeat"><a href="#repeat" class="headerlink" title="repeat"></a>repeat</h3><p>重复播放指定次数动画</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">motion.repeat(1);</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://localhost/documents/mframe/zh_CN/fundamentals/motion_object.html" data-id="ck7wy02kh000g8mur1oxaaljg" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+
+  
+    
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 Arthus<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/documents/" class="mobile-nav-link">Home</a>
+  
+    <a href="/documents/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/documents/fancybox/jquery.fancybox.css">
+
+  
+<script src="/documents/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/documents/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
