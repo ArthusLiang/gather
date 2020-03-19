@@ -1,3 +1,0 @@
-# English
-
-# Join us1
