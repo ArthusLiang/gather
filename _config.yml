@@ -104,7 +104,7 @@ theme: momentum
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repo: https://ACTION_DEPLOY_KEY@github.com/ArthusLiang/gather.git
+  repo: https://GITHUB_ACCESS_TOKEN@github.com/ArthusLiang/gather.git
   branch: gh-pages
 
   # repo: https://github.com/ArthusLiang/gather
