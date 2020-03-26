@@ -24,4 +24,4 @@ jobs:
       env:
         ACTION_DEPLOY_KEY: ${{ secrets.deploy }}
       run: |
-        hexo clean && hexo generate && hexo deploy
+        hexo clean && hexo deploy

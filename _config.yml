@@ -104,7 +104,15 @@ theme: momentum
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repo: https://github.com/ArthusLiang/gather
-  branch: gh-pages
-  message: auto deploy
-  token: $ACTION_DEPLOY_KEY
+  repo:
+    github:
+      url: https://github.com/ArthusLiang/gather
+      branch: gh-pages
+      token: $ACTION_DEPLOY_KEY
+  name: yulhuang
+  email: yulhuang@cisco.com
+
+  # repo: https://github.com/ArthusLiang/gather
+  # branch: gh-pages
+  # message: auto deploy
+  # token: $ACTION_DEPLOY_KEY
