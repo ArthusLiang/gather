@@ -107,3 +107,4 @@ deploy:
   repo: https://github.com/ArthusLiang/gather
   branch: gh-pages
   message: auto deploy
+  token: $ACTION_DEPLOY_KEY
