@@ -1,13 +1,10 @@
-# Fundamentals
+# Motion Object
 
-[![CircleCI](https://img.shields.io/circleci/project/github/momentum-design/momentum-ui/master.svg)](https://circleci.com/gh/momentum-design/momentum-ui/)
 [![license](https://img.shields.io/github/license/momentum-design/momentum-ui.svg?color=blueviolet)](https://github.com/momentum-design/momentum-ui/blob/master/charts/LICENSE)
 
 > mframe
 
-# Motion Object
-
-## Create motion object.
+## Create motion object
 
 You can call mframe to create motion object directly.
 
@@ -30,8 +27,6 @@ var motion = mframe([{
 
 The add function accepts the same arugment as the constructor's.
 
-#### Example
-
 ```
 motion.add([{
   dom: document.getElementById('ball'),
@@ -49,8 +44,6 @@ motion.add([{
 ### append
 
 The append function accepts the same arugment as the constructor's. The only different is the time zero will be the last frame in motion object.
-
-#### Example
 
 ```
 motion.add([{

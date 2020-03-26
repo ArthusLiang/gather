@@ -23,7 +23,9 @@ mframe.Cpu.install('yourOwnMode', {
 ```
 
 + You need set up get and set in your own cpu mode.
-+ Dom could also be an array of doms. 
+
++ Dom could also be an array of doms.
+
 + The key could also be null and function.
 
 ## Tween
