@@ -25,7 +25,7 @@ jobs:
         npm i -g hexo-cli
         npm i
     - name: Deploy
-        env:
+      env:
         ACTION_DEPLOY_KEY: ${{ secrets.deploy }}
       run: |
         hexo clean && hexo generate && hexo deploy
