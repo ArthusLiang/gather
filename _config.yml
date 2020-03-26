@@ -104,6 +104,6 @@ theme: momentum
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repo:
+  repo: https://github.com/ArthusLiang/gather
   branch: gh-pages
-  message: branch deploy
+  message: auto deploy
