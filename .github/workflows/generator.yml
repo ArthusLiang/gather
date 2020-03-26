@@ -16,12 +16,10 @@ jobs:
       env:
         ACTION_DEPLOY_KEY: ${{ secrets.deploy }}
       run: |
-        git config --global user.name 'yulhuang'
-        git config --global user.email 'yulhuang@cisco.com'
         npm i -g hexo-cli
         npm i
     - name: Deploy
-      env:
+        env:
         ACTION_DEPLOY_KEY: ${{ secrets.deploy }}
       run: |
-        hexo clean && hexo deploy
+        hexo clean && hexo generate && hexo deploy
