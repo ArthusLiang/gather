@@ -108,7 +108,7 @@ deploy:
     github:
       url: https://github.com/ArthusLiang/gather
       branch: gh-pages
-      token: $GITHUB_TOKEN
+      token: $ACTION_DEPLOY_KEY
   name: yulhuang
   email: yulhuang@cisco.com
 
