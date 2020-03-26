@@ -1,29 +1,29 @@
-on:
-  push:
-    branches:    
-      - master
-  pull_request:
-    branches:    
-      - master
-name: Deploy
+name: Deploy Blog
+
+on: [push, pull_request]
+
 jobs:
   build:
-    name: Build
     runs-on: ubuntu-latest
     steps:
-     - uses: actions/checkout@master
-    - name: Clean
-      uses: heowc/action-hexo@master
+    - name: Checkout
+      uses: actions/checkout@v1
+    - name: Use Node.js 10.x
+      uses: actions/setup-node@v1
       with:
-        args: clean
-    - name: Generate
-      uses: heowc/action-hexo@master
-      with:
-        args: generate
-    - name: Deploy
-      uses: heowc/action-hexo@master
+        node-version: "10.x"
+    - name: Setup Hexo env
       env:
-        EMAIL: yulhuang@cisco.com
-        NAME: yulhuang
-      with:
-        args: deploy
+        ACTION_DEPLOY_KEY: ${{ secrets.deploy }}
+      run: |
+        mkdir -p ~/.ssh/
+        echo "$ACTION_DEPLOY_KEY" | tr -d '\r' > ~/.ssh/id_rsa
+        chmod 600 ~/.ssh/id_rsa
+        ssh-keyscan github.com >> ~/.ssh/known_hosts
+        git config --global user.name 'yulhuang'
+        git config --global user.email 'yulhuang@cisco.com'
+        npm i -g hexo-cli
+        npm i
+    - name: Deploy
+      run: |
+        hexo clean && hexo generate && hexo deploy
